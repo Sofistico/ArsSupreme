@@ -46,13 +46,15 @@ namespace ArsLibrary.Characters
                 }
             }
             recursive = false;
-
         }
     }
 
     public enum AbilityType
     {
         General,
-        Academic
+        Academic,
+        Arcane,
+        Supernatural,
+        Martial
     }
 }

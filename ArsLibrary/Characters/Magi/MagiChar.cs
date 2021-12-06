@@ -1,4 +1,5 @@
-﻿using ArsLibrary.Magic;
+﻿using ArsLibrary.Covenants;
+using ArsLibrary.Magic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,10 @@ namespace ArsLibrary.Characters.Magi
     {
         public List<Art> Arts { get; set; }
         public List<FormulaicSpell> Spells { get; set; }
+        public int AppreticedAge { get; set; }
+        public MagiChar? Paren { get; set; }
+        public Covenant? AppreticeCovenant { get; set; }
+        public Covenant? Covenant { get; set; }
 
         public MagiChar(string languageName) : base(languageName)
         {
@@ -20,7 +25,9 @@ namespace ArsLibrary.Characters.Magi
             TrackedXp.Xp = 420;
             Age = 25;
             ApparentAge = 25;
-            Virtues.Add(new Virtue(VirtuePoint.Free, "Magus", "You are a wizard, harry!"));
+            AppreticedAge = 10;
+            Virtues.Add(new Virtue(VirtuePoint.Free,
+                "Hermetic Magus", "You are a wizard, harry!", VirtueType.Social));
         }
     }
 }

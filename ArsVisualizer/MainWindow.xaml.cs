@@ -24,10 +24,5 @@ namespace ArsSupreme
         {
             InitializeComponent();
         }
-
-        private void ListBox_SelectionChanged()
-        {
-
-        }
     }
 }

@@ -27,9 +27,10 @@ namespace ArsLibrary
         /// <param name="plus"></param>
         /// <param name="botches"></param>
         /// <returns>Bool returns if is a botch, int returns the value</returns>
-        public (int, bool) StressDie(int plus = 0)
+        public (int, bool) StressDie(int plus = 0, int botches = 1)
         {
-            int rng = rngGod.Next(0, 10 + 1);
+            // 0 is 10, so the roll is 0-9
+            int rng = rngGod.Next(0, 10);
             // Check for botch
             if (rng == 0)
             {
@@ -40,7 +41,12 @@ namespace ArsLibrary
                 }
                 else if (botch == 0)
                 {
-                    return (0, true);
+                    int fuckedNumber = 0;
+                    for (int i = 0; i < botches; i++)
+                    {
+                        fuckedNumber += rngGod.Next(0, 10);
+                    }
+                    return (fuckedNumber, true);
                 }
             }
             if (rng == 1)

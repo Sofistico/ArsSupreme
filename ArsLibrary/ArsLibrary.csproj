@@ -10,7 +10,6 @@
     <Folder Include="Characters\Grogs\" />
     <Folder Include="Characters\Companions\" />
     <Folder Include="Characters\Creature\" />
-    <Folder Include="Covenants\" />
   </ItemGroup>
 
 </Project>

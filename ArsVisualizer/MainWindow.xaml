@@ -6,4 +6,5 @@
         xmlns:local="clr-namespace:ArsSupreme"
         mc:Ignorable="d"
         Title="ArsSupreme" Height="450" Width="800">
+    <ListBox x:Name="ButtonsListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,679,0" HorizontalAlignment="Left" Width="121" />
 </Window>

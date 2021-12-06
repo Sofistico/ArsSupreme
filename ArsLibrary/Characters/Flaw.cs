@@ -3,6 +3,7 @@
     public class Flaw
     {
         public VirtuePoint Point { get; set; }
+        public VirtueType Type { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
 

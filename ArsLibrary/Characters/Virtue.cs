@@ -7,11 +7,12 @@
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public Virtue(VirtuePoint virtuePoint, string name, string description)
+        public Virtue(VirtuePoint virtuePoint, string name, string description, VirtueType virtueType)
         {
             Point = virtuePoint;
             Name = name;
             Description = description;
+            Type = virtueType;
         }
     }
 
@@ -27,6 +28,9 @@
         General,
         Hermetic,
         Supernatural,
-        Social
+        Social,
+        Personality,
+        Special,
+        Story
     }
 }
