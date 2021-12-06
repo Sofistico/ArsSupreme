@@ -1,4 +1,6 @@
-﻿namespace ArsLibrary.Magic
+﻿using System;
+
+namespace ArsLibrary.Magic
 {
     public abstract class BaseHermeticMagic
     {
@@ -12,15 +14,16 @@
         public Target Target { get; set; }
         public Duration Duration { get; set; }
         public string Description { get; set; }
+        public string Name { get; set; }
 
-        protected BaseHermeticMagic(Form form,
-            Technique technique,
+        protected BaseHermeticMagic(Technique technique,
+            Form form,
             int baseLvl,
             int extraMagnitude,
             Range range,
             Target target,
             Duration duration,
-            string description)
+            string name)
         {
             Form = form;
             Technique = technique;
@@ -29,7 +32,37 @@
             Range = range;
             Target = target;
             Duration = duration;
-            Description = description;
+            Name = name;
+
+            CalculateMagnitudes();
+        }
+
+        private void CalculateMagnitudes()
+        {
+            EffectLevel = Base;
+            int extraMag = ExtraMagnitude;
+            int range = (int)Range;
+            int dur = (int)Duration;
+            int targ = (int)Target;
+            extraMag += range + dur + targ;
+            int i = 1;
+
+            if (Base < 5)
+            {
+                for (; i <= extraMag; i++)
+                {
+                    if (EffectLevel == 5)
+                    {
+                        break;
+                    }
+                    EffectLevel += 1;
+                }
+                extraMag -= i;
+            }
+
+            EffectLevel += (extraMag * 5);
+
+            Magnitude = EffectLevel / 5;
         }
     }
 }

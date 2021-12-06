@@ -8,15 +8,15 @@ namespace ArsLibrary.Magic
 {
     public class FormulaicSpell : BaseHermeticMagic
     {
-        public FormulaicSpell(Form form,
-            Technique technique,
+        public FormulaicSpell(Technique technique,
+            Form form,
             int baseLvl,
             int extraMagnitude,
             Range range,
             Target target,
             Duration duration,
-            string description) :
-            base(form, technique, baseLvl, extraMagnitude, range, target, duration, description)
+            string name) :
+            base(technique, form, baseLvl, extraMagnitude, range, target, duration, name)
         {
         }
     }

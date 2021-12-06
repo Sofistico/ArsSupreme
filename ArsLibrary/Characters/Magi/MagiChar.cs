@@ -10,7 +10,8 @@ namespace ArsLibrary.Characters.Magi
 {
     public class MagiChar : BaseChar
     {
-        public List<Art> Arts { get; set; }
+        public ArtList Arts { get; set; }
+
         public List<FormulaicSpell> Spells { get; set; }
         public int AppreticedAge { get; set; }
         public MagiChar? Paren { get; set; }
@@ -20,7 +21,7 @@ namespace ArsLibrary.Characters.Magi
         public MagiChar(string languageName) : base(languageName)
         {
             Type = CharType.Magus;
-            Arts = ArtDictionary.ListAllArts();
+            Arts = new();
             Spells = new();
             TrackedXp.Xp = 420;
             Age = 25;

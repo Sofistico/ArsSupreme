@@ -17,6 +17,22 @@ namespace ArsLibrary.Magic
         public int XpSpent { get; private set; }
         public int ReminderXp { get; private set; }
 
+        public Art this[string key]
+        {
+            get
+            {
+                if (key == ArtName)
+                    return this;
+                else
+                    throw new ArgumentException();
+            }
+
+            set
+            {
+                this[key] = value;
+            }
+        }
+
         public Art(string artName, int level, int currentXp, bool isForm)
         {
             ArtName = artName;
@@ -53,7 +69,6 @@ namespace ArsLibrary.Magic
                 }
             }
             recursive = false;
-
         }
     }
 }
