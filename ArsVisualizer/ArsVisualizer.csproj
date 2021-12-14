@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <Compile Update="**\*.xaml.cs">
+		  <DependentUpon>%(Filename)</DependentUpon>
+	  </Compile>
+	  <EmbeddedResource Include="**\*.xaml" />
+	  <EmbeddedResource Remove="MainWindow.xaml" />
+	  <None Remove="App.xaml" />
+	  <PackageReference Include="Avalonia" Version="0.10.10" />
+	  <PackageReference Include="Avalonia.Desktop" Version="0.10.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+
+</Project>

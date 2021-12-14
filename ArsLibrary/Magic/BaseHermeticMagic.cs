@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ArsLibrary.Magic
 {
@@ -15,6 +16,9 @@ namespace ArsLibrary.Magic
         public Duration Duration { get; set; }
         public string Description { get; set; }
         public string Name { get; set; }
+        public bool HasRequisite { get; set; }
+        public List<Technique> TechniqueReq { get; set; }
+        public List<Form> FormReq { get; set; }
 
         protected BaseHermeticMagic(Technique technique,
             Form form,
@@ -33,6 +37,8 @@ namespace ArsLibrary.Magic
             Target = target;
             Duration = duration;
             Name = name;
+            TechniqueReq = new List<Technique>();
+            FormReq = new List<Form>();
 
             CalculateMagnitudes();
         }
