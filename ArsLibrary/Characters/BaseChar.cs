@@ -14,7 +14,7 @@ namespace ArsLibrary.Characters
         public TrackXp TrackedXp { get; set; }
         public List<Virtue> Virtues { get; set; }
         public List<Flaw> Flaws { get; set; }
-        public Dictionary<int, Ability> Abilities { get; set; }
+        public List<Ability> Abilities { get; set; }
         public Ability NativeLanguage { get; set; }
         public List<PersonalityTrait> PersonalitiesTraits { get; set; }
         public List<Reputation> Reputations { get; set; }
@@ -37,7 +37,7 @@ namespace ArsLibrary.Characters
             Virtues = new();
             Flaws = new();
             TrackedXp = new TrackXp();
-            Abilities = new Dictionary<int, Ability>();
+            Abilities = new List<Ability>();
             PersonalitiesTraits = new();
             Reputations = new List<Reputation>();
             CombatStats = new CombatStats();
@@ -47,15 +47,15 @@ namespace ArsLibrary.Characters
             {
                 Level = 5
             };
-            Abilities.Add(0, NativeLanguage);
+            Abilities.Add(NativeLanguage);
         }
 
         public void AddNewAbility(Ability ability)
         {
-            Abilities.Add(ability.Id, ability);
+            Abilities.Add(ability);
         }
 
-        public void AddNewAbilityXp(Ability ability, int xpSpent)
+        public void AddNewAbilityWithXp(Ability ability, int xpSpent)
         {
             if (xpSpent > TrackedXp.Xp)
                 return;

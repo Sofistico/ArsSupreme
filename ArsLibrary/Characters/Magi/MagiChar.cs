@@ -11,7 +11,6 @@ namespace ArsLibrary.Characters.Magi
     public class MagiChar : BaseChar
     {
         public ArtList Arts { get; set; }
-
         public List<FormulaicSpell> Spells { get; set; }
         public int AppreticedAge { get; set; }
         public MagiChar? Paren { get; set; }
