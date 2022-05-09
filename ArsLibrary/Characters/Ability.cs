@@ -11,12 +11,17 @@ namespace ArsLibrary.Characters
         public int Level { get; internal set; }
         public int SpentXp { get; private set; }
         public int RemainderXp { get; private set; }
+        public bool IsAffinity { get; set; }
+        public bool IsPuissant { get; set; }
 
-        public Ability(string name, AbilityType abilityType, int id)
+        public Ability(string name, AbilityType abilityType, int id,
+            bool isPuissant = false, bool isAffinity = false)
         {
             Name = name;
             AbilityType = abilityType;
             Id = id;
+            IsAffinity = isAffinity;
+            IsPuissant = isPuissant;
         }
 
         public void RaiseWithXp(int xpSpent)
